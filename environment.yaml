@@ -1,0 +1,12 @@
+name: fennec-genomics
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - sra-tools
+  - fastqc
+  - multiqc
+  - ncbi-datasets-cli
+  - bwa
+  - samtools

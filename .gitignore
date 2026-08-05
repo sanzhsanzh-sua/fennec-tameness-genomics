@@ -1,0 +1,35 @@
+# Raw sequencing data and reference genome/indexes -- tens of GB, never commit.
+aligned/
+reference/
+variants/region_bams/
+fastqc_reports/
+
+# Per-accession raw read directories (SRR2xxxxxxx/) and their contents
+SRR2[0-9][0-9][0-9][0-9][0-9][0-9][0-9]/
+
+*.sra
+*.fastq.gz
+*.fq.gz
+*.bam
+*.bai
+*.cram
+*.crai
+
+# Reference FASTA + bwa/samtools indexes, wherever they end up
+*.fna
+*.fna.fai
+*.fa
+*.fa.fai
+*.amb
+*.ann
+*.bwt
+*.pac
+*.sa
+
+# Large SRA metadata dump / NCBI datasets zips (not needed to reproduce; see README)
+PRJNA951250_sra_full.xml
+*.zip
+
+# Local tooling / OS cruft
+.claude/
+.DS_Store
