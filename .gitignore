@@ -4,8 +4,16 @@ reference/
 variants/region_bams/
 fastqc_reports/
 
+# Belyaev fox stage (belyaev_foxes/): same principle -- BAMs, raw genome
+# fasta and its GFF3 (309MB), and download scratch dirs are not committed.
+aligned_fox/
+reference_fox/
+sra_tmp/
+fqd_tmp/
+
 # Per-accession raw read directories (SRR2xxxxxxx/) and their contents
 SRR2[0-9][0-9][0-9][0-9][0-9][0-9][0-9]/
+SRR5[0-9][0-9][0-9][0-9][0-9][0-9][0-9]/
 
 *.sra
 *.fastq.gz
