@@ -8,6 +8,7 @@ fastqc_reports/
 # fasta and its GFF3 (309MB), and download scratch dirs are not committed.
 aligned_fox/
 reference_fox/
+reference_fox3/
 sra_tmp/
 fqd_tmp/
 
