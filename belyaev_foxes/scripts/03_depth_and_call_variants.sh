@@ -1,8 +1,14 @@
 #!/bin/bash
 # Same approach as the fennec stage (scripts/03_depth_and_call_variants.sh):
 # per-base depth (samtools depth) + joint variant calling (bcftools
-# mpileup/call) across all 6 pilot fox samples, restricted to the 3
+# mpileup/call) across the 9 fox samples in the expanded pilot (5 tame,
+# 4 aggressive -- see metadata/pilot5_samples.tsv; asymmetric because two
+# ~7.5Gbp aggressive samples, AGGR03 and AGGR05, both hit a reproducible
+# fasterq-dump disk-exhaustion failure at ~6.1-6.2Gbp processed,
+# consistent with shrinking available disk headroom as more BAMs
+# accumulated over the course of the run), restricted to the 3
 # candidate-gene regions, with the same soft MQ<40 -> FILTER=LowMQ rule.
+# Reference: VulVul3 (reference_fox3/reference_subset.fna).
 set -euo pipefail
 
 source ~/miniforge3/etc/profile.d/conda.sh
@@ -10,9 +16,9 @@ conda activate fennec-genomics
 
 cd "$(dirname "$0")/../.."
 
-REF=reference_fox/reference_subset.fna
+REF=reference_fox3/reference_subset.fna
 BED=variants_fox/candidate_regions.bed
-mapfile -t RUNS < <(tail -n +2 belyaev_foxes/metadata/pilot_samples.tsv | cut -f1)
+mapfile -t RUNS < <(tail -n +2 belyaev_foxes/metadata/pilot5_samples.tsv | cut -f1)
 
 BAMS=()
 for RUN in "${RUNS[@]}"; do
